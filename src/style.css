@@ -1,0 +1,80 @@
+.main {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+}
+
+.header {
+	background-color: cyan;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+.row {
+	margin: 0;
+}
+
+.nav {
+	background-color: #48D4B8;
+	width: 20%;
+	height: 800px;
+	float: left;
+	display: none;
+}
+
+.article {
+	background-color: hotpink;
+	width: 100%;
+	height: 800px;
+	float: left;
+}
+
+.footer {
+	background-color: #E06A1F;
+	width: 100%;
+	height: 150px;
+	clear: both;
+}
+
+.image {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+
+	margin-top: 30px;
+}
+
+.biggerGlyphicon {
+	font-size: 1.6em;
+}
+
+.upper {
+	position: relative;
+	top: 15px;
+
+}
+
+.list {
+		
+	height: 75px;
+	
+	display: flex;
+	align-items: center;
+
+	background-color: tomato;
+
+	border-bottom: 2px solid #FF330F; 
+
+}
+
+@media all and (min-width: 700px){
+	.nav {
+		display: inline;
+	}
+	.article {
+		width: 80%;
+	}
+}
