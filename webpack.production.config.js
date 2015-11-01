@@ -1,19 +1,15 @@
 var webpack = require('webpack');
-var friendlyFormatter = require('eslint-friendly-formatter');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   module: {
-    loaders:
-    [
+    loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: [ 'react-hot', 'babel?optional[]=runtime', 'eslint' ]
+        loader: 'babel?optional[]=runtime'
       },
       {
         test: /\.css$/,
@@ -24,9 +20,6 @@ module.exports = {
       }
     ]
   },
-  eslint: {
-    formatter: friendlyFormatter,
-  },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -35,12 +28,6 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-    historyApiFallback: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
   ]
 };
