@@ -7,3 +7,5 @@ const reducers = combineReducers({
   task,
   list
 });
+
+export default reducers;
