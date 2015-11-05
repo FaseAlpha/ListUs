@@ -1,25 +1,24 @@
 import { SET_TASK, ADD_TASK, REMOVE_TASK, EDIT_TASK } from '../actions';
 import { getId } from '../utils';
-import { Map, List } from 'immutable';
 
 function addTask(state, idList, title){
   const id = getId();
-  const task = Map({
-      [id]:Map({
-          id,
-          idList,
-          title
-        })
-    });
-  return state.merge(task);
+  const list = {
+    [id]:{
+      id,
+      idList,
+      title
+    }
+  };
+  return Object.assign({}, state, list);
 }
 
 function removeTask(state, idTask){
-  return state.delete(idTask);
+  return Object.values(state).reduce( (tasks, task) => task.id === idTask ? tasks : Object.assign( tasks, { [task.id]: task }),{});
 }
 
 function editTask(state, idTask, title){
-  return state.updateIn([idTask,'title'], olderTitle => title);
+  return Object.values(state).reduce( (tasks, task)  => task.id === idTask ? Object.assign(tasks, { [task.id]: {id:task.id,idList:task.idList,title} }, { }) : Object.assign( tasks, { [task.id]: task }) , {});
 }
 
 

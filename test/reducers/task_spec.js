@@ -10,76 +10,66 @@ describe('reducer', () => {
 
   it('ADD_TASK ', () => {
 
-    const initialState = Map();
     const id = getId();
     const idList = 0;
-    const nextState = reducer(initialState, addTask(idList, 'Real Madrid'));
+    const nextState = reducer({}, addTask(idList, 'Real Madrid'));
 
-    expect(Object.keys(nextState).length).to.eql(Object.keys(Map({
-        [id]:Map({
-            id,
-            idList,
-            title: 'Real Madrid'
-          })
-      })).length);
+    expect(Object.keys(nextState).length).to.eql(Object.keys({
+      [id]:{
+        id,
+        idList,
+        'title': 'Real Madrid'
+      }
+    }).length);
   });
 
   it('REMOVE_TASK', () => {
     const id = getId();
     const idList = 0;
-    const initialState = Map({
-        [id]:Map({
+    const initialState = {
+          [id]:{
             id,
             idList,
             title: 'Real Madrid'
-          }),
-          2:Map({
+          },
+          2:{
               id:2,
               idList,
               title: 'ATM'
-            })
-      });
+            }
+      };
     const nextState = reducer(initialState, removeTask(id));
 
-    expect(nextState).to.eql(Map({
-      2:Map({
+    expect(nextState).to.eql({
+      2:{
           id:2,
           idList,
           title: 'ATM'
-        })
-    }));
+        }
+    });
+
   });
 
   it('EDIT_TASK', () => {
     const id = getId();
     const idList = 0;
-    const initialState = Map({
-        [id]:Map({
+    const initialState = {
+        [id]:{
             id,
             idList,
             title: 'Real Madrid'
-          }),
-          2:Map({
-              id:2,
-              idList,
-              title: 'ATM'
-            })
-      });
+          }
+      };
     const nextState = reducer(initialState, editTask(id, 'x'));
 
-    expect(nextState).to.eql(Map({
-        [id]:Map({
+    expect(nextState).to.eql({
+        [id]:{
             id,
             idList,
             title: 'x'
-          }),
-          2:Map({
-              id:2,
-              idList,
-              title: 'ATM'
-            })
-      }));
-  })
+          }
+      });
+  });
 
 
 
