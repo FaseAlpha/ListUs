@@ -1,10 +1,7 @@
 import { combineReducers } from 'redux';
-import { routerStateReducer as router } from 'redux-router';
-import polls from './poll';
+import task from './task.js';
 
-const pollApp = combineReducers({
-  polls,
-  router
+
+const reducers = combineReducers({
+  task
 });
-
-export default pollApp;
