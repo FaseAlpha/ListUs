@@ -2,7 +2,7 @@ import {fromJS} from 'immutable';
 import { getId } from './index.js';
 
 
-export const list = fromJS([
+export const list = [
   {
     id: getId(),
     title: 'Real Madrid'
@@ -11,11 +11,11 @@ export const list = fromJS([
     id: getId(),
     title: 'Barcelona'
   }
-]);
+];
 
 
 
-export const task = fromJS({
+export const task = {
   0: {
     id: '0',
 		listId: list[0].id,
@@ -46,7 +46,7 @@ export const task = fromJS({
     listId: list[1].id,
     title: 'Neymar'
   }
-});
+};
 
 export const initialState = {
   list, task
