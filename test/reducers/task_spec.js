@@ -6,7 +6,7 @@ import { addTask, removeTask, editTask } from '../../src/actions';
 import { task } from '../../src/utils/examples.js';
 import { getId } from '../../src/utils';
 
-describe('reducer', () => {
+describe('taskReducers', () => {
 
   it('ADD_TASK ', () => {
 
@@ -14,6 +14,7 @@ describe('reducer', () => {
     const id = getId();
     const idList = 0;
     const nextState = reducer(initialState, addTask(idList, 'Real Madrid'));
+    
 
     expect(Object.keys(nextState).length).to.eql(Object.keys(Map({
         [id]:Map({
@@ -22,10 +23,12 @@ describe('reducer', () => {
             title: 'Real Madrid'
           })
       })).length);
+
   });
 
   it('REMOVE_TASK', () => {
     const id = getId();
+    const id2 = getId();
     const idList = 0;
     const initialState = Map({
         [id]:Map({
@@ -33,25 +36,29 @@ describe('reducer', () => {
             idList,
             title: 'Real Madrid'
           }),
-          2:Map({
-              id:2,
+        [id2]:Map({
+              id: id2,
               idList,
               title: 'ATM'
             })
-      });
+    });
+
     const nextState = reducer(initialState, removeTask(id));
 
     expect(nextState).to.eql(Map({
-      2:Map({
-          id:2,
+      [id2]:Map({
+          id:id2,
           idList,
           title: 'ATM'
         })
     }));
+
+    expect(nextState.size).to.eql(1);
   });
 
   it('EDIT_TASK', () => {
     const id = getId();
+    const id2 = getId();
     const idList = 0;
     const initialState = Map({
         [id]:Map({
@@ -59,8 +66,8 @@ describe('reducer', () => {
             idList,
             title: 'Real Madrid'
           }),
-          2:Map({
-              id:2,
+        [id2]:Map({
+              id:id2,
               idList,
               title: 'ATM'
             })
@@ -73,8 +80,8 @@ describe('reducer', () => {
             idList,
             title: 'x'
           }),
-          2:Map({
-              id:2,
+        [id2]:Map({
+              id:id2,
               idList,
               title: 'ATM'
             })
