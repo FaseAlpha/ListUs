@@ -20,18 +20,20 @@ describe('LIST_TEXT', () => {
 
   it('REMOVE_LIST', () => {
     const id = getId();
-    const initialState = [ { id:1, title: 'James' }, { id, title: 'Benzema' }];
+    const id2 = getId();
+    const initialState = [ { id:id2, title: 'James' }, { id, title: 'Benzema' }];
     const nextState = reducer( initialState, removeList(id));
 
-    expect(nextState).to.eql([ { id:1, title: 'James' } ]);
+    expect(nextState).to.eql([ { id:id2, title: 'James' } ]);
   });
 
   it('EDIT_LIST', () => {
     const id = getId();
-    const initialState = [ { id:1, title: 'James' }, { id, title: 'Benzema' }];
+    const id2 = getId();
+    const initialState = [ { id:id2, title: 'James' }, { id, title: 'Benzema' }];
     const nextState = reducer( initialState, editList(id, 'Keylor'));
 
-    expect(nextState).to.eql([ { id:1, title: 'James' }, { id, title: 'Keylor' }])
+    expect(nextState).to.eql([ { id:id2, title: 'James' }, { id, title: 'Keylor' }])
   });
 });
 
