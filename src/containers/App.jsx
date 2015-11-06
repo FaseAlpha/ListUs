@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
+import { Link } from 'react-router';
 export default class App extends Component {
 
   constructor(props) {
@@ -9,7 +9,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to my App</h1>
+        <h1>Welcome to ListUs</h1>
+        <div className="row">
+          <div className="col-lg-1">
+            <Link to="/list">Mostrar listas</Link>
+          </div>
         {this.props.children}
       </div>
     );
