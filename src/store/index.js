@@ -1,6 +1,5 @@
-import { createStore } from 'redux';
-import reducer from '../reducers';
-
-export default function configureStore() {
-  return createStore(reducer);
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./prod');
+} else {
+  module.exports = require('./dev');
 }
