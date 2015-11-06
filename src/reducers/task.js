@@ -1,4 +1,4 @@
-import { SET_TASK, ADD_TASK, REMOVE_TASK, EDIT_TASK } from '../actions';
+import {  ADD_TASK, REMOVE_TASK, EDIT_TASK } from '../actions';
 import { getId } from '../utils';
 
 function addTask(state, idList, title){
@@ -27,7 +27,7 @@ function editTask(state, idTask, title){
 }
 
 
-export default function taskReducer( state = {} , action){
+export default function taskReducer( state = {}, action){
   switch (action.type) {
     case ADD_TASK:
       return addTask(state, action.idTask, action.title);

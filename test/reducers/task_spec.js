@@ -1,9 +1,8 @@
 import { expect } from 'chai';
-import { Map, fromJS } from 'immutable';
 
-import reducer from '../../src/reducers/task.js';
+
+import taskReducer from '../../src/reducers/task.js';
 import { addTask, removeTask, editTask } from '../../src/actions';
-import { task } from '../../src/utils/examples.js';
 import { getId } from '../../src/utils';
 
 describe('reducer', () => {
@@ -12,7 +11,7 @@ describe('reducer', () => {
 
     const id = getId();
     const idList = 0;
-    const nextState = reducer({}, addTask(idList, 'Real Madrid'));
+    const nextState = taskReducer({}, addTask(idList, 'Real Madrid'));
 
     expect(Object.keys(nextState).length).to.eql(Object.keys({
       [id]:{
@@ -23,53 +22,53 @@ describe('reducer', () => {
     }).length);
   });
 
-  it('REMOVE_TASK', () => {
-    const id = getId();
-    const idList = 0;
-    const initialState = {
-          [id]:{
-            id,
-            idList,
-            title: 'Real Madrid'
-          },
-          2:{
-              id:2,
+    it('REMOVE_TASK', () => {
+      const id = getId();
+      const idList = 0;
+      const initialState = {
+            [id]:{
+              id,
               idList,
-              title: 'ATM'
-            }
-      };
-    const nextState = reducer(initialState, removeTask(id));
+              title: 'Real Madrid'
+            },
+            2:{
+                id:2,
+                idList,
+                title: 'ATM'
+              }
+        };
+      const nextState = taskReducer(initialState, removeTask(id));
 
-    expect(nextState).to.eql({
-      2:{
-          id:2,
-          idList,
-          title: 'ATM'
-        }
-    });
-
-  });
-
-  it('EDIT_TASK', () => {
-    const id = getId();
-    const idList = 0;
-    const initialState = {
-        [id]:{
-            id,
+      expect(nextState).to.eql({
+        2:{
+            id:2,
             idList,
-            title: 'Real Madrid'
-          }
-      };
-    const nextState = reducer(initialState, editTask(id, 'x'));
-
-    expect(nextState).to.eql({
-        [id]:{
-            id,
-            idList,
-            title: 'x'
+            title: 'ATM'
           }
       });
-  });
+
+    });
+
+    it('EDIT_TASK', () => {
+      const id = getId();
+      const idList = 0;
+      const initialState = {
+          [id]:{
+              id,
+              idList,
+              title: 'Real Madrid'
+            }
+        };
+      const nextState = taskReducer(initialState, editTask(id, 'x'));
+
+      expect(nextState).to.eql({
+          [id]:{
+              id,
+              idList,
+              title: 'x'
+            }
+        });
+    });
 
 
 

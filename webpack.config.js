@@ -1,5 +1,7 @@
-var webpack = require('webpack');
-var friendlyFormatter = require('eslint-friendly-formatter');
+'use strict';
+
+let webpack = require('webpack');
+let friendlyFormatter = require('eslint-friendly-formatter');
 
 module.exports = {
   entry: [
@@ -41,6 +43,11 @@ module.exports = {
     historyApiFallback: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+      }
+    })
   ]
 };

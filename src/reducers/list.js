@@ -1,4 +1,4 @@
-import { SET_LIST, ADD_LIST, REMOVE_LIST, EDIT_LIST } from '../actions';
+import {  ADD_LIST, REMOVE_LIST, EDIT_LIST } from '../actions';
 import { getId } from '../utils';
 
 function addList( state, title ){
