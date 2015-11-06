@@ -6,10 +6,10 @@ export class Article extends React.Component {
 		return (
 			<article className='article row'>
     			<div className="col-xs-12">
-      				<List name='Lista 1' undoTasks={15}/>
-        			<List name='Lista 2' undoTasks={3}/>
-      			</div>
-      		</article>
+      			<List name='Lista 1' undoTasks={15}/>
+        		<List name='Lista 2' undoTasks={3}/>
+      		</div>
+      </article>
 		);
 	}
 }
