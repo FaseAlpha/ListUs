@@ -14,11 +14,16 @@ function addTask(state, idList, title){
 }
 
 function removeTask(state, idTask){
-  return Object.values(state).reduce( (tasks, task) => task.id === idTask ? tasks : Object.assign( tasks, { [task.id]: task }),{});
+  //return Object.values(state).reduce( (tasks, task) => task.id === idTask ? tasks : Object.assign( tasks, { [task.id]: task }),{});
+  let newState = Object.assign({}, state);
+  delete newState[idTask];
+  return newState;
 }
 
 function editTask(state, idTask, title){
-  return Object.values(state).reduce( (tasks, task)  => task.id === idTask ? Object.assign(tasks, { [task.id]: {id:task.id,idList:task.idList,title} }, { }) : Object.assign( tasks, { [task.id]: task }) , {});
+  let newTask = Object.assign({}, state[idTask], {title} );
+  return Object.assign( {}, state, { [idTask]: newTask });
+  //return Object.values(state).reduce( (tasks, task)  => task.id === idTask ? Object.assign(tasks, { [task.id]: {id:task.id,idList:task.idList,title} }, { }) : Object.assign( tasks, { [task.id]: task }) , {});
 }
 
 
