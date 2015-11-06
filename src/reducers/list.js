@@ -1,31 +1,31 @@
-import { ADD_LIST, REMOVE_LIST } from '../actions';
+
+import { SET_LIST, ADD_LIST, REMOVE_LIST, EDIT_LIST } from '../actions';
 import { getId } from '../utils';
 
-import { Map, List } from 'immutable';
-
-function addList (state, id, title) {
-	
-	const list = Map({
-		[id]:Map({
-			title: title
-		})
-	});
-
-	return state.merge(list);
-
-
+function addList( state, title ){
+  const id = getId();
+  return state.concat({ id, 'title': title });
 }
 
-function removeList(state, id){
-	return state.delete(id);
+function removeList( state, idList ){
+  return state.filter( task => task.id !== idList );
 }
 
-export default function listReducer( state = {} , action ){
+function editList(state, idList, title){
+  return state.map( list => list.id === idList ? Object.assign( {}, list, {'title': title }) : list );
+}
+
+
+
+
+export default function listReducer( state = [], action){
   switch (action.type) {
     case ADD_LIST:
-      return addList(state, action.id, action.title);
+      return addList(state, action.title);
     case REMOVE_LIST:
-    	return removeList(state, action.idList); 
+      return removeList(state, action.idList);
+    case EDIT_LIST:
+      return editList(state, action.idList, action.title);
     default:
       return state;
   }

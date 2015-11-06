@@ -1,38 +1,37 @@
 import { expect } from 'chai';
-import { Map, fromJS } from 'immutable';
 
-import reducer from '../../src/reducers/list.js';
-import { addList, removeList } from '../../src/actions';
+import { Map, List } from 'immutable';
+
 import { getId } from '../../src/utils';
+import {  addList, removeList, editList} from '../../src/actions';
+import reducer from '../../src/reducers/list.js';
 
-
-describe('listReducers', () => {
+describe('LIST_TEXT', () => {
 
   it('ADD_LIST', () => {
 
-    const initialState = Map();
+    const initialState = [];
+    const nextState = reducer( initialState, addList('James'));
+    expect((nextState).length).to.eql( [{
+      id:1,
+      title: 'James'
+    }].length);
+  });
+
+  it('REMOVE_LIST', () => {
     const id = getId();
-    
-    const nextState = reducer(initialState, addList(id, 'Real Madrid'));
+    const initialState = [ { id:1, title: 'James' }, { id, title: 'Benzema' }];
+    const nextState = reducer( initialState, removeList(id));
 
-    expect(nextState.size).to.eql(initialState.size+1);
+    expect(nextState).to.eql([ { id:1, title: 'James' } ]);
+  });
 
-	});
+  it('EDIT_LIST', () => {
+    const id = getId();
+    const initialState = [ { id:1, title: 'James' }, { id, title: 'Benzema' }];
+    const nextState = reducer( initialState, editList(id, 'Keylor'));
 
-	it('REMOVE_LIST', () => {
-
-		const id = getId();
-		const id2 = getId();
-		const initialState = Map({
-        [id]:Map({
-            id,
-            title: 'Real Madrid'
-          })
-    });
-
-		const nextState = reducer(initialState, removeList(id));
-
-		expect(nextState.size).to.eql(Map({}).size);
-
-	});
+    expect(nextState).to.eql([ { id:1, title: 'James' }, { id, title: 'Keylor' }])
+  });
 });
+

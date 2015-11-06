@@ -1,3 +1,4 @@
+
 import {fromJS} from 'immutable';
 import { getId } from './index.js';
 import { Map, List } from 'immutable';
@@ -68,3 +69,4 @@ export const task = {
 export const initialState = {
   list, task
 };
+
