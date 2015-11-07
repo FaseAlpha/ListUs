@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-
+import Header from './Header';
+import Nav from './Nav';
+import Article from './Article';
+import Footer from './Footer';
 
 export default class App extends Component {
 
@@ -11,6 +14,12 @@ export default class App extends Component {
     return (
       <div>
         <h1>Welcome to my App</h1>
+        <div>
+          <Header />
+          <Nav />
+          <Article />
+          <Footer />
+        </div>
         {this.props.children}
       </div>
     );

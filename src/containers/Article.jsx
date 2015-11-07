@@ -1,15 +1,34 @@
 import React from 'react';
-import List from '../components/List';
+import { connect } from 'react-redux';
 
-export class Article extends React.Component {
+import ListManager from '../components/ListManager';
+
+
+class Article extends React.Component {
 	render() {
 		return (
 			<article className='article row'>
     			<div className="col-xs-12">
-      			<List name='Lista 1' undoTasks={15}/>
-        		<List name='Lista 2' undoTasks={3}/>
-      		</div>
+    				<ListManager />
+    				
+       		</div>
       </article>
 		);
 	}
 }
+
+
+function mapStateToProps(state) {
+  return {
+  };
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+  };
+}
+
+export default connect(
+	mapActionsToProps,
+	mapStateToProps
+)(Article);

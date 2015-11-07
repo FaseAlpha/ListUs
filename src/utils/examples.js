@@ -1,16 +1,20 @@
 
-import {fromJS} from 'immutable';
+import { fromJS } from 'immutable';
 import { getId } from './index.js';
 import { Map, List } from 'immutable';
+
+export const kk = 'Hola';
 
 export const list = [
   {
     id: getId(),
-    title: 'Real Madrid'
+    title: 'Real Madrid',
+    undoTasks: 10
   },
   {
     id: getId(),
-    title: 'Barcelona'
+    title: 'Barcelona',
+    undoTasks: 5
   }
 ];
 
