@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+
 export default class App extends Component {
 
   constructor(props) {
@@ -12,8 +13,12 @@ export default class App extends Component {
         <h1>Welcome to ListUs</h1>
         <div className="row">
           <div className="col-lg-1">
-            <Link to="/list">Mostrar listas</Link>
+            <Link to="/list"> mostrar Listas </Link>
           </div>
+          <div className="col-lg-1">
+  	    		<Link to="/">Hide Polls</Link>
+  	    	</div>
+        </div>
         {this.props.children}
       </div>
     );
@@ -21,6 +26,6 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  // Injected by React Router
+  // Injected by React RouterConfirmDialog
   children: PropTypes.node
 };

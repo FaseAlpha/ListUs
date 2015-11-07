@@ -1,5 +1,9 @@
-import {  ADD_LIST, REMOVE_LIST, EDIT_LIST } from '../actions';
+import { SET_LIST, ADD_LIST, REMOVE_LIST, EDIT_LIST } from '../actions';
 import { getId } from '../utils';
+
+function setList(state, list) {
+  return list.slice();
+}
 
 function addList( state, title ){
   const id = getId();
@@ -19,6 +23,8 @@ function editList(state, idList, title){
 
 export default function listReducer( state = [], action){
   switch (action.type) {
+    case SET_LIST:
+  		return setList(state, action.list);
     case ADD_LIST:
       return addList(state, action.title);
     case REMOVE_LIST:

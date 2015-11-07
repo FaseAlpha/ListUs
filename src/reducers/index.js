@@ -1,11 +1,11 @@
 
 import { combineReducers } from 'redux';
 import { routerStateReducer as router } from 'redux-router';
-import task from './task';
-import list from './list';
+import tasks from './task';
+import lists from './list';
 
 export default combineReducers({
-  router,
-  task,
-  list
+  lists,
+  tasks,
+  router
 });
