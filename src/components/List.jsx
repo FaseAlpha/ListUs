@@ -12,7 +12,7 @@ export default class List extends React.Component {
 			<div className="list row">
        			<div className="col-xs-1"></div>
         		<div className="col-xs-3">{this.props.title}</div>
-        		<div className="col-xs-6"></div>
+        		<div className="col-xs-6">{this.props.children}</div>
         		<div className="col-xs-1"><span className='badgeList badge'>{this.props.undoTasks}</span></div>
         		<div className="col-xs-1"></div>
      	</div>	
@@ -22,7 +22,9 @@ export default class List extends React.Component {
 
 List.propTypes = {
   title: PropTypes.string.isRequired,
-  undoTasks: PropTypes.number
+  undoTasks: PropTypes.number,
+  id: PropTypes.number,
+  children: PropTypes.element.isRequired
 };
 
 List.defaultProps = {

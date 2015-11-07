@@ -13,6 +13,8 @@ export const EDIT_TASK = 'EDIT_TASK';
 export const ADD_LIST = 'ADD_LIST';
 export const REMOVE_LIST = 'REMOVE_LIST';
 export const EDIT_LIST = 'EDIT_LIST';
+export const SET_LIST = 'SET_LIST';
+export const REMOVE_ALL_LISTS = 'REMOVE_ALL_LISTS';
 
 
 /*
@@ -45,4 +47,12 @@ export function removeList (idList) {
 
 export function editList(idList, title){
 	return { type: EDIT_LIST, idList, title	};
+}
+
+export function setList (list) {
+	return { type: SET_LIST, list };
+}
+
+export function removeAllLists(list) {
+	return { type: REMOVE_ALL_LISTS, list };
 }

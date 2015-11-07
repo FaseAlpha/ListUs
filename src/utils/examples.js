@@ -3,9 +3,7 @@ import { fromJS } from 'immutable';
 import { getId } from './index.js';
 import { Map, List } from 'immutable';
 
-export const kk = 'Hola';
-
-export const list = [
+const LIST = [
   {
     id: getId(),
     title: 'Real Madrid',
@@ -18,7 +16,9 @@ export const list = [
   }
 ];
 
-const id = getId();
+export default LIST;
+
+/*const id = getId();
 const id2 = getId();
 const idList = 0;
 
@@ -72,5 +72,5 @@ export const task = {
 
 export const initialState = {
   list, task
-};
+};*/
 

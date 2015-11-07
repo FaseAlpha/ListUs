@@ -1,24 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import Header from './Header';
-import Nav from './Nav';
-import Article from './Article';
-import Footer from './Footer';
+import HeaderContainer from './HeaderContainer';
+import NavContainer from './NavContainer';
+import ArticleContainer from './ArticleContainer';
+import FooterContainer from './FooterContainer';
 
 export default class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div>
         <h1>Welcome to my App</h1>
         <div>
-          <Header />
-          <Nav />
-          <Article />
-          <Footer />
+          <HeaderContainer />
+          <NavContainer />
+          <ArticleContainer />
+          <FooterContainer />
         </div>
         {this.props.children}
       </div>
