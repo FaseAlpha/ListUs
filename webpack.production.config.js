@@ -29,5 +29,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-  ]
+       /* new ExtractTextPlugin("/src/style.css", {
+            allChunks: true
+        })*/
+    ]
 };

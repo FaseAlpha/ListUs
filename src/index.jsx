@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './containers/Root';
-
 import init from './utils/init';
 
 require('./style.css');

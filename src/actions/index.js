@@ -1,8 +1,8 @@
 /*
  * action types
  */
-export const SET_POLLS = 'SET_POLLS';
-export const ADD_POLL = 'ADD_POLL';
+export const SET_LISTS = 'SET_LISTS';
+export const ADD_LIST = 'ADD_LIST';
 
 /*
  * other constants
@@ -14,10 +14,10 @@ export const ADD_POLL = 'ADD_POLL';
  * action creators
  */
 
-export function setPolls(polls) {
-  return { type: SET_POLLS, polls };
+export function setLists(lists) {
+  return { type: SET_LISTS, lists };
 }
 
-export function addPoll(title) {
-  return { type: ADD_POLL, title };
+export function addList(title) {
+  return { type: ADD_LIST, title };
 }

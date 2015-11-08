@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerStateReducer as router } from 'redux-router';
-import polls from './poll';
+import lists from './list';
 
-const pollApp = combineReducers({
-  polls,
-  router
+const listApp = combineReducers({
+  lists,
+  router,
 });
 
-export default pollApp;
+export default listApp;
