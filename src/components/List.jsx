@@ -7,9 +7,17 @@ export default class List extends React.Component {
     super(props);
   }
 
+  
+
 	render() {
+
+    let style = 'row list ';
+
+    style += this.props.undoTasks === 0 ? 'listCompleted' : 'listNotCompleted';
+    
 		return (
-			<div className="list row">
+      
+  		<div className={style}>
        			<div className="col-xs-1"></div>
         		<div className="col-xs-3">{this.props.title}</div>
         		<div className="col-xs-6">{this.props.children}</div>

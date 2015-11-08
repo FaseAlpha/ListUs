@@ -11,9 +11,10 @@ export default class Article extends React.Component {
   handleAddListItem() {
     const { addListItem } = this.props;
     const node = this.refs.ListInput;
-    const title = node.value;
+    const title = node.value.trim();
     addListItem(title);
-    console.log(title);
+    node.value = '';
+    //console.log(title);
   }
 
   handleDeleteListItem(idList) {
@@ -27,16 +28,28 @@ export default class Article extends React.Component {
     deleteAllLists(list);
   }
 
+  handleEmptyInput(){
+    const node = this.refs.ListInput;
+    const title = node.value.trim();  
+    const submitButton = this.refs.submitButton;
+    let submitButtonClass = submitButton.className;
+    
+    submitButtonClass += title.length ? 'btn btn-primary' : '';
+
+    submitButton.className = submitButtonClass;
+  }
+
   render() {
 
     const { list } = this.props;
-    console.log(list);
+    //console.log(list);
+    
 
     return (
       <div className='article'>
         <div>
-          <input type='text' ref='ListInput' />
-          <input type='button' className='btn btn-primary' value='Submit' onClick={this.handleAddListItem.bind(this)} />
+          <input type='text' ref='ListInput' onChange={this.handleEmptyInput.bind(this)}/>
+          <input type='button' ref='submitButton' className='btn btn-primary disabled' value='Submit' onClick={this.handleAddListItem.bind(this)} />
           <button onClick={this.handleDeleteAllLists.bind(this)} className='pull-right btn btn-danger'>Borrar todas las listas</button>
         </div>
         <div>

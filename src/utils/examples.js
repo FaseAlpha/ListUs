@@ -12,7 +12,7 @@ const LIST = [
   {
     id: getId(),
     title: 'Barcelona',
-    undoTasks: 5
+    undoTasks: 0
   }
 ];
 

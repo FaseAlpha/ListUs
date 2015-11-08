@@ -61,9 +61,31 @@
 	display: flex;
 	align-items: center;
 
-	background-color: tomato;
-
 	border-bottom: 2px solid #FF330F; 
+
+}
+
+.listNotCompleted {
+	background-color: tomato;
+}
+
+.listCompleted {
+	background-color: #A3A3A3;
+}
+
+.listCompleted:after {
+
+	position: absolute;
+	height: 1.5px;
+	left: 22%;
+  width: 73%;
+
+	background-color: #C2C2C2;
+
+  display: block;
+
+	content: "";
+
 
 }
 
