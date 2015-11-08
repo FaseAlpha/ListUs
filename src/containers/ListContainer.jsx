@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+/*import { connect } from 'react-redux';
 import { addList, removeList, editList } from '../actions';
 import Lists from '../components/Lists';
 
@@ -20,3 +20,4 @@ export default connect(
   mapStateToProps,
   mapActionsToProps
 )(Lists);
+*/

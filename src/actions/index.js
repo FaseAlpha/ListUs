@@ -17,6 +17,18 @@ export const REMOVE_LIST = 'REMOVE_LIST';
 export const EDIT_LIST = 'EDIT_LIST';
 
 /*
+* DISPLAY ASIDE
+*/
+
+export const DISPLAY_ASIDE = 'DISPLAY_ASIDE';
+
+/*
+* DISPLAY CALENDAR
+*/
+
+export const DISPLAY_CALENDAR = 'DISPLAY_CALENDAR';
+
+/*
 * task action creator
 */
 
@@ -48,4 +60,20 @@ export function removeList(idList){
 }
 export function editList( idList, title ){
   return { type: EDIT_LIST, idList, title };
+}
+
+/*
+* visibility aside action creator
+*/
+
+export function displayAside(display){
+  return { type: DISPLAY_ASIDE, display };
+}
+
+/*
+* visibility calendar action creator
+*/
+
+export function displayCalendar(display){
+  return { type: DISPLAY_CALENDAR, display };
 }

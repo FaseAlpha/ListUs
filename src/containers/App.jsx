@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
+import HeaderContainer from './HeaderContainer';
+import SectionContainer from './SectionContainer.jsx';
 
 export default class App extends Component {
 
@@ -10,14 +12,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to ListUs</h1>
+
         <div className="row">
-          <div className="col-lg-1">
-            <Link to="/list"> mostrar Listas </Link>
+          <div className="col-md-12">
+              <HeaderContainer />
           </div>
-          <div className="col-lg-1">
-  	    		<Link to="/">Hide Polls</Link>
-  	    	</div>
+          <div className="col-md-12">
+            <SectionContainer />
+          </div>
         </div>
         {this.props.children}
       </div>

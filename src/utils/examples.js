@@ -69,5 +69,8 @@ export const tasks = {
   }
 };
 
+export const aside = {display: false};
 
-export const initialState =  { lists, tasks };
+export const calendar = {display: true};
+
+export const initialState =  { lists, tasks, aside, calendar };
