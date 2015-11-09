@@ -12,13 +12,14 @@ function addList(state, title, date){
 }
 
 function removeList(state, id){
-  const newState = state;
-  for(let i=0; i<newState.length; i++){
+
+  const newState = state.slice();
+  for(let i=0; i<state.length && newState.length===state.length; i++){
     if(newState[i]['id'] === id){
       newState.splice(i, 1);
-      return newState;
     }
   }
+  return newState;
 
 }
 

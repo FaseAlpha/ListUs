@@ -1,13 +1,13 @@
 import React, { Component, PropTypes} from 'react';
 
 export default class ListElement extends Component{
-  /*constructor(props){
+  constructor(props){
     super();
-  }*/
+  }
 
-  handleOnClickDeleteList(e){
+  handleClickRemoveList(e){
     e.preventDefault();
-    this.onRemoveList(this.keys);
+    this.props.onRemoveList(this.props.element.id);
   }
 
   render(){
@@ -17,7 +17,7 @@ export default class ListElement extends Component{
         <span key={element.id}>{element.title}</span>
         <span>{element.date}</span>
         <span>
-          <a href="" className="glyphicon glyphicon-remove-circle"/>
+          <a href="" className="glyphicon glyphicon-remove-circle" onClick={e => this.handleClickRemoveList(e)}/>
           <a href="" className=""/>
         </span>
       </div>

@@ -38,24 +38,18 @@ export default class User extends Component{
     this.refs.dialog.show();
   }
 
-  handleCancelAddList(e){
-
-  }
-
   handleOnClick(e){
     e.preventDefault();
     this.refs.dialog.show();
 
   }
 
-
-
- resetInputs(){
+ /*resetInputs(){
     this.refs.titleToAdd.value='';
     this.refs.day.value='';
     this.refs.month.value='';
     this.refs.year.value='';
-  }
+  }*/
 
   
   render(){
@@ -63,10 +57,10 @@ export default class User extends Component{
       <div>
         <div className="header">
           <div><a href="" className="btn btn-warning">---</a></div>
-          <div><img id="avatar" src="" alt="Perfil" /></div>
+          <div><img id="avatar" src={"http://vignette4.wikia.nocookie.net/zelda/images/e/e6/Trifuerza.png/revision/latest?cb=20130331185756&path-prefix=es"} alt="Perfil" /></div>
           <div></div>
         </div>
-        <ListHolder lists={this.props.lists}/>
+        <ListHolder lists={this.props.lists} onRemoveList={this.props.onRemoveList}/>
         <br/>
         <IntroduceConfirmDialog />
       </div>

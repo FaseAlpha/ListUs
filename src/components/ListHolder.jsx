@@ -16,7 +16,7 @@ export default class ListHolder extends Component{
       <div className="listHolder">
       {this.props.lists.map(function(list){
         return (
-          <ListElement element={list}/>
+          <ListElement element={list} onRemoveList={this.props.onRemoveList}/>
         );
        
       }.bind(this))}
