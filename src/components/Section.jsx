@@ -1,25 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import List from '../components/List';
-import { Dialog } from 'material-ui';
+import ModalAddAction from './ModalAddAction';
 
 export default class Section extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      isModal:false
+      modal:false
     };
   }
 
-
-  handleIsModal(){
-
+  _handleOnClickButton(){
+    this.setState( {
+      modal:true
+    });
   }
 
-
-  handleOnClickButton(e){
-    this.setState({ isModal: true});
-  }
 
   handleOkClick(e){
     const newTitle = this.refs.title.value;
@@ -27,6 +24,7 @@ export default class Section extends Component {
     onAddList(newTitle);
     this.setState({ isModify: false});
   }
+
 
   handleCancelClick(e){
     this.setState({ isModify: false});
@@ -37,14 +35,7 @@ export default class Section extends Component {
     return(
       <div className="row section">
 
-
-      <Dialog
-    title="Dialog With Standard Actions"
-    actions={standardActions}
-    actionFocus="submit"
-    modal={this.state.modal}>
-    The actions in this window are created from the json that's passed in.
-  </Dialog>
+        <ModalAddAction />
 
         <span className={ `${ asideVisibility.display ? '' : 'hidden' }`}>
           <div className="aside">
@@ -62,7 +53,7 @@ export default class Section extends Component {
             }
           </ul>
 
-           <button onClick={ e => Dialog.isOpen()} className="btn btn-danger"><span className="glyphicon glyphicon-plus" /></button>
+           <button onClick={ e => this._handleOnClickButton()} className="btn btn-danger"><span className="glyphicon glyphicon-plus" /></button>
         </div>
       </div>
     );
@@ -81,10 +72,3 @@ Section.defaultProps = {
   asideVisibility: {},
   lists: []
 };
-
-
-
-  let standardActions = [
-  { text: 'Cancel' },
-  { text: 'Submit', onTouchTap: alert('eee') }
-];
