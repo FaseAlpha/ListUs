@@ -1,7 +1,7 @@
 //import React from 'react';
 import { connect } from 'react-redux';
 import { addList, removeList } from '../actions';
-import User from '../components/User';
+import ConfirmDialog from '../components/ConfirmDialog';
 
 function stateToProps(state){
 	return {
@@ -16,20 +16,8 @@ function actionsToProps(dispatch){
 	};
 }
 
-	
-
 export default connect(
-	/*state => ({
-		 lists: state.lists
-	}),
-
-	dispatch =>({
-		selectList: lists => dispatch(setList(lists))
-	}) 
-	dispatch =>({
-		addList: dispatch(AddList(list))
-	});*/
 	stateToProps,
 	actionsToProps
-)(User);
+)(ConfirmDialog);
 

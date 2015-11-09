@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Nav from '../components/Nav';
+import IntroduceConfirmDialog from './IntroduceConfirmDialog';
 
 
 export default class App extends Component {
