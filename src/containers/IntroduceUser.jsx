@@ -1,6 +1,6 @@
 //import React from 'react';
 import { connect } from 'react-redux';
-//import { setList } from '../actions';
+import { addList } from '../actions';
 import User from '../components/User';
 
 function stateToProps(state){
@@ -11,7 +11,7 @@ function stateToProps(state){
 
 function actionsToProps(dispatch){
 	return{
-		//selectList: lists => dispatch(setList(lists))
+		onAddList: (title, date) => dispatch(addList(title, date))
 	};
 }
 
