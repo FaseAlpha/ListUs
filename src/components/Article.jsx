@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Dialog } from 'material-ui';
 
 import List from './List';
 
@@ -6,6 +7,9 @@ export default class Article extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      disabledBtn: true
+    };  
   }
 
   handleAddListItem() {
@@ -14,6 +18,9 @@ export default class Article extends React.Component {
     const title = node.value.trim();
     addListItem(title);
     node.value = '';
+    this.setState({
+      disabledBtn: true
+    });
     //console.log(title);
   }
 
@@ -31,25 +38,41 @@ export default class Article extends React.Component {
   handleEmptyInput(){
     const node = this.refs.ListInput;
     const title = node.value.trim();  
-    const submitButton = this.refs.submitButton;
-    let submitButtonClass = submitButton.className;
     
-    submitButtonClass += title.length ? 'btn btn-primary' : '';
+    this.setState({
+      disabledBtn: title.length === 0
+    });
 
-    submitButton.className = submitButtonClass;
+  }
+
+  isModalOpen(){
+    
   }
 
   render() {
 
     const { list } = this.props;
     //console.log(list);
-    
+    let standardActions = [
+      { text: 'Cancel' },
+      { text: 'Submit', onTouchTap: this._onDialogSubmit, ref: 'submit' }
+    ];
 
     return (
       <div className='article'>
+        <Dialog 
+          ref='dialog'
+          title='Crear Lista'
+          actions={standardActions}
+          isOpen={this.isModalOpen}
+          actionFocus='Submit'>
+          Aquí se crea la lista
+        </Dialog>
+        debugger;
+        <button onClick={this.refs.dialog.show()}>Abrir</button>
         <div>
           <input type='text' ref='ListInput' onChange={this.handleEmptyInput.bind(this)}/>
-          <input type='button' ref='submitButton' className='btn btn-primary disabled' value='Submit' onClick={this.handleAddListItem.bind(this)} />
+          <button disabled={this.state.disabledBtn} ref='submitButton' className='btn btn-primary' onClick={e => this.handleAddListItem(e)}>Submit</button>
           <button onClick={this.handleDeleteAllLists.bind(this)} className='pull-right btn btn-danger'>Borrar todas las listas</button>
         </div>
         <div>

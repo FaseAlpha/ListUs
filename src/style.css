@@ -60,6 +60,7 @@
 	
 	display: flex;
 	align-items: center;
+	position: relative;
 
 	border-bottom: 2px solid #FF330F; 
 
