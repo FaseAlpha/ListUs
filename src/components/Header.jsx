@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+
 export default class Header extends Component{
 
   constructor(props){
@@ -15,7 +16,7 @@ export default class Header extends Component{
 
     return(
 
-      <div className="row">
+      <div className="row header">
         <div className="col-md-2">
           <button onClick={ () => this.handleOnClickAsideVisibility()} > <span className="glyphicon glyphicon-menu-hamburger" /> </button>
         </div>

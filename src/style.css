@@ -1,1 +1,16 @@
 
+.section{
+  background: red;
+}
+.header{
+  background: blue;
+}
+.list{
+  background: yellow;
+}
+.aside{
+  position: fixed;
+  z-index: 1;
+  background: green;
+  opacity: 0.9;
+}

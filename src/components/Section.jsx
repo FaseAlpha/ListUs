@@ -1,15 +1,24 @@
 import React, { Component, PropTypes } from 'react';
 import List from '../components/List';
+import { Dialog } from 'material-ui';
 
 export default class Section extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isModify: false };
+    this.state = {
+      isModal:false
+    };
   }
 
+
+  handleIsModal(){
+
+  }
+
+
   handleOnClickButton(e){
-    this.setState({ isModify: true});
+    this.setState({ isModal: true});
   }
 
   handleOkClick(e){
@@ -26,9 +35,19 @@ export default class Section extends Component {
   render() {
     const {  lists, asideVisibility, onEditList, onRemoveList } = this.props;
     return(
-      <div className="row">
+      <div className="row section">
+
+
+      <Dialog
+    title="Dialog With Standard Actions"
+    actions={standardActions}
+    actionFocus="submit"
+    modal={this.state.modal}>
+    The actions in this window are created from the json that's passed in.
+  </Dialog>
+
         <span className={ `${ asideVisibility.display ? '' : 'hidden' }`}>
-          <div className="col-md-4">
+          <div className="aside">
             <ul>
               <li>dewfwgw</li>
               <li>few</li>
@@ -42,14 +61,8 @@ export default class Section extends Component {
               lists.map( (list) => <List list={list} onRemoveList={onRemoveList} onEditList={onEditList}/> )
             }
           </ul>
-           <button onClick={ e => this.handleOnClickButton(e)} className="btn btn-danger"><span className="glyphicon glyphicon-plus" /></button>
-           <div className={`input-group ${this.state.isModify ? '' : 'hidden'}`}>
-               <input className="form-control" ref="title"/>
-               <span className="input-group-btn">
-                 <button className="btn btn-danger" type="button" onClick={e => this.handleCancelClick(e)}><span className="glyphicon glyphicon-remove" /></button>
-                 <button className="btn btn-success" type="button" onClick={e => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
-               </span>
-           </div>
+
+           <button onClick={ e => Dialog.isOpen()} className="btn btn-danger"><span className="glyphicon glyphicon-plus" /></button>
         </div>
       </div>
     );
@@ -68,3 +81,10 @@ Section.defaultProps = {
   asideVisibility: {},
   lists: []
 };
+
+
+
+  let standardActions = [
+  { text: 'Cancel' },
+  { text: 'Submit', onTouchTap: alert('eee') }
+];
