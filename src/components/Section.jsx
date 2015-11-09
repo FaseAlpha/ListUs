@@ -6,36 +6,14 @@ export default class Section extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      modal:false
-    };
-  }
-
-  _handleOnClickButton(){
-    this.setState( {
-      modal:true
-    });
-  }
-
-
-  handleOkClick(e){
-    const newTitle = this.refs.title.value;
-    const { onAddList } = this.props;
-    onAddList(newTitle);
-    this.setState({ isModify: false});
-  }
-
-
-  handleCancelClick(e){
-    this.setState({ isModify: false});
   }
 
   render() {
-    const {  lists, asideVisibility, onEditList, onRemoveList } = this.props;
+    const {  lists, asideVisibility, onEditList, onRemoveList, onAddList } = this.props;
     return(
       <div className="row section">
+        <ModalAddAction onAddList={ onAddList } />
 
-        <ModalAddAction />
 
         <span className={ `${ asideVisibility.display ? '' : 'hidden' }`}>
           <div className="aside">
@@ -49,11 +27,11 @@ export default class Section extends Component {
         <div className="col-md-8">
           <ul>
             {
-              lists.map( (list) => <List list={list} onRemoveList={onRemoveList} onEditList={onEditList}/> )
+              lists.map( (list, index) => <List list={list} key={index} onRemoveList={onRemoveList} onEditList={onEditList}/> )
             }
           </ul>
+          
 
-           <button onClick={ e => this._handleOnClickButton()} className="btn btn-danger"><span className="glyphicon glyphicon-plus" /></button>
         </div>
       </div>
     );
