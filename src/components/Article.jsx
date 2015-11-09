@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Dialog } from 'material-ui';
+import { Dialog, TextField, FloatingActionButton, DatePicker } from 'material-ui';
+
+const injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
 import List from './List';
 
@@ -14,13 +17,15 @@ export default class Article extends React.Component {
 
   handleAddListItem() {
     const { addListItem } = this.props;
+
     const node = this.refs.ListInput;
-    const title = node.value.trim();
+    const title = node.getValue().trim();
     addListItem(title);
+
     node.value = '';
-    this.setState({
-      disabledBtn: true
-    });
+    console.log(this.refs.datePicker.getDate());
+    this.refs.dialog.dismiss();
+
     //console.log(title);
   }
 
@@ -45,34 +50,42 @@ export default class Article extends React.Component {
 
   }
 
-  isModalOpen(){
-    
+  showDialog(){
+    const nodeDialog = this.refs.dialog;
+    nodeDialog.show();
   }
+
+  hideDialog(){
+    const nodeDialog = this.refs.dialog;
+    nodeDialog.dismiss();
+  }
+  
+
+  
+
+  
 
   render() {
 
     const { list } = this.props;
     //console.log(list);
-    let standardActions = [
-      { text: 'Cancel' },
-      { text: 'Submit', onTouchTap: this._onDialogSubmit, ref: 'submit' }
+
+    let dialogActions = [
+      { text: 'Cancel', onClick: this.hideDialog.bind(this) },
+      { text: 'Submit', onClick: e => this.handleAddListItem(e), ref: 'submit' }
     ];
 
     return (
       <div className='article'>
-        <Dialog 
-          ref='dialog'
-          title='Crear Lista'
-          actions={standardActions}
-          isOpen={this.isModalOpen}
-          actionFocus='Submit'>
-          Aquí se crea la lista
-        </Dialog>
-        debugger;
-        <button onClick={this.refs.dialog.show()}>Abrir</button>
+
         <div>
-          <input type='text' ref='ListInput' onChange={this.handleEmptyInput.bind(this)}/>
-          <button disabled={this.state.disabledBtn} ref='submitButton' className='btn btn-primary' onClick={e => this.handleAddListItem(e)}>Submit</button>
+          <Dialog ref='dialog' title='Crear Lista' actions={dialogActions} >
+            <TextField ref='ListInput' floatingLabelText="Título de la lista" />
+            <DatePicker hintText="Landscape Dialog" ref='datePicker' mode="landscape"/>
+          </Dialog>
+        </div>
+
+        <div>
           <button onClick={this.handleDeleteAllLists.bind(this)} className='pull-right btn btn-danger'>Borrar todas las listas</button>
         </div>
         <div>
@@ -84,6 +97,12 @@ export default class Article extends React.Component {
                 </div>
               </List>)
           }
+        </div>
+
+        <div className='row-center'>          
+          <FloatingActionButton onClick={this.showDialog.bind(this)}>
+            <i className='material-ui'>+</i>
+          </FloatingActionButton>
         </div>
 
       </div>  
