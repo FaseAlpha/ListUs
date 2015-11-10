@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ItemList from './ItemList';
 
 export default class List extends Component {
 
@@ -34,11 +35,9 @@ export default class List extends Component {
     return(
       <div>
         <span className={ `${ this.state.isModifyList ? 'hidden' : '' }`}>
-          <li className="list-group-item action-element" key={list.id}>
-            {list.title}
+          <ItemList className="list-group-item action-element" id={list.id} title={list.title}/>
             <button className="btn btn-warning" onClick={(e) => this.handleOnClickEdit(e)} ><span className="glyphicon glyphicon-wrench" /></button>
             <button className="btn btn-danger" onClick={(e) => this.handleOnClickRemove(e)} ><span className="glyphicon glyphicon-remove-sign" /></button>
-          </li>
         </span>
         <div className={`input-group ${this.state.isModifyList ? '' : 'hidden'}`}>
             <input className="form-control" ref="title"/>

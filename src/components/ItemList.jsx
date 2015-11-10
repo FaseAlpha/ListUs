@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class ItemList extends Component {
 
@@ -7,14 +8,16 @@ export default class ItemList extends Component {
   }
 
   render() {
-
+    const { title, id } = this.props;
     return(
-      <div>
+      <li className={'list-group-item action-element'} >
+        <Link to={`/${list.id}`}>{ list.title }</Link>
+      </li>
 
     );
   }
 }
 
 ItemList.propTypes = {
-  
-}
+  list: PropTypes.object.isRequired
+};

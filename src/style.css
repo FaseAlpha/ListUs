@@ -14,3 +14,8 @@
   background: green;
   opacity: 0.9;
 }
+.center{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}

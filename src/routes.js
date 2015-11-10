@@ -7,7 +7,7 @@ import App from './containers/App';
 
 export default (
   <Route path="/" component={App}>
-
+    <Route path="/:idList" component={ListDetailsContainer} />
     <Redirect path="*" to="/" />
   </Route>
 );
