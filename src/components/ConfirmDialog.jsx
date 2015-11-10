@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog, FlatButton } from 'material-ui';
+import { Dialog, FlatButton, DatePicker } from 'material-ui';
 
 export default class ConfirmDialog extends Component {
 
@@ -27,8 +27,12 @@ export default class ConfirmDialog extends Component {
 			<FlatButton label="Cancel" secondary onClick={e=>this.handleClickDismissDialog(e)} />,
 			<FlatButton label="Submit" primary onClick={e=>this.handleAddList(e)} />
 		];
-
+		//const DatePicker = require('material-ui/lib/date-picker/date-picker');
+		//const DatePickerDialog = require('material-ui/lib/date-picker/date-picker-dialog');
+		var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 		return (
+
 			<div>
 
 			<Dialog ref="dialog" title='Añade una lista' actions={customActions}>
@@ -39,6 +43,7 @@ export default class ConfirmDialog extends Component {
 						<input ref="month" size="1" />
 						<input ref="year" size="2" />
 					</p>
+					<DatePicker className="dataPicker"  ref="date" hintText="Portrait Dialog"/>
 				</div>
 			</Dialog>
 			<a href="" className="btn btn-danger" onClick={e=>this.handleClickShowDialog(e)}>+</a>

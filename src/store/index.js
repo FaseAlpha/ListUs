@@ -7,10 +7,11 @@ import thunk from 'redux-thunk';
 import confirm from '../middlewares/confirm';
 
 const createStoreWithMiddleware = compose(
-	applyMiddleware(thunk, confirm),
+	//applyMiddleware(thunk, confirm),
   	reduxReactRouter({ routes, createHistory })
 )(createStore);
 
 export default function configureStore(initialState = {}) {
+	
   return createStoreWithMiddleware(reducer, initialState);
 }
