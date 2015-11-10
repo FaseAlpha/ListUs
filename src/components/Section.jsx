@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import List from '../components/List';
-import ModalAddAction from './ModalAddAction';
 
 export default class Section extends Component {
 
@@ -9,7 +8,7 @@ export default class Section extends Component {
   }
 
   render() {
-    const {  lists, asideVisibility, onEditList, onRemoveList, onAddList } = this.props;
+    const {  lists, asideVisibility, onEditList, onRemoveList } = this.props;
     return(
       <div className="row section">
 
@@ -30,7 +29,7 @@ export default class Section extends Component {
           </ul>
         </div>
         <div className="col-md-12 center">
-          <ModalAddAction onAddList={ onAddList } />
+          <button> + </button>
         </div>
       </div>
     );

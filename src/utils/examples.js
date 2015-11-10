@@ -3,11 +3,11 @@ import { getId } from './index';
 export const lists = [
   {
     id: getId(),
-    title: 'Spanish Political Parties'
+    title: 'Real Madrid'
   },
   {
     id: getId(),
-    title: 'Programming Languages'
+    title: 'Barsa'
   }
 ];
 
@@ -15,57 +15,42 @@ export const tasks = {
 	0: {
     id: '0',
 		idList: lists[1].id,
-		title: 'Java'
+		title: 'Messi'
 	},
   1: {
     id: '1',
     idlists: lists[1].id,
-    title: 'JavaScript'
+    title: 'Neymar'
   },
   2: {
     id: '2',
     idList: lists[1].id,
-    title: 'PHP'
+    title: 'Iniesta'
   },
   3: {
     id: '3',
     idList: lists[1].id,
-    title: 'C#'
-  },
-  4: {
-    id: '4',
-    idList: lists[1].id,
-    title: 'Python'
-  },
-  5: {
-    id: '5',
-    idList: lists[1].id,
-    title: 'Ruby'
-  },
-  6: {
-    id: '6',
-    idList: lists[1].id,
-    title: 'Haskell'
+    title: 'Suarez'
   },
   7: {
     id: '7',
     idList: lists[0].id,
-    title: 'PP'
+    title: 'James'
   },
   8: {
     id: '8',
     idList: lists[0].id,
-    title: 'C\'s'
+    title: 'Benzema'
   },
   9: {
     id: '9',
     idList: lists[0].id,
-    title: 'Podemos.'
+    title: 'Cristiano'
   },
   10: {
     id: '10',
     idList: lists[0].id,
-    title: 'PSOE'
+    title: 'Modric'
   }
 };
 

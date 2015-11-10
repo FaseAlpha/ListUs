@@ -35,7 +35,7 @@ export default class List extends Component {
     return(
       <div>
         <span className={ `${ this.state.isModifyList ? 'hidden' : '' }`}>
-          <ItemList className="list-group-item action-element" id={list.id} title={list.title}/>
+          <ItemList className="list-group-item action-element" list={list}/>
             <button className="btn btn-warning" onClick={(e) => this.handleOnClickEdit(e)} ><span className="glyphicon glyphicon-wrench" /></button>
             <button className="btn btn-danger" onClick={(e) => this.handleOnClickRemove(e)} ><span className="glyphicon glyphicon-remove-sign" /></button>
         </span>

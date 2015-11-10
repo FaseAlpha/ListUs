@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-//import { Link } from 'react-router';
+import { Link } from 'react-router';
 import HeaderContainer from './HeaderContainer';
-import SectionContainer from './SectionContainer.jsx';
+
 
 export default class App extends Component {
 
@@ -17,9 +17,7 @@ export default class App extends Component {
           <div className="col-md-12">
               <HeaderContainer />
           </div>
-          <div className="col-md-12">
-            <SectionContainer />
-          </div>
+
         </div>
         {this.props.children}
       </div>

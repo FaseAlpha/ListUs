@@ -8,10 +8,10 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const { title, id } = this.props;
+    const { list } = this.props;
     return(
       <li className={'list-group-item action-element'} >
-        <Link to={`/${list.id}`}>{ list.title }</Link>
+        <Link to={`/list/${list.id}`}>{ list.title }</Link>
       </li>
 
     );
