@@ -3,14 +3,15 @@ import { getId } from '../utils';
 
 function addTask(state, idList, title){
   const id = getId();
-  const list = {
+  const task = {
     [id]:{
       id,
       idList,
       title
     }
   };
-  return Object.assign({}, state, list);
+  return Object.assign({}, state, task);
+
 }
 
 function removeTask(state, idTask){

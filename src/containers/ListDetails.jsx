@@ -24,9 +24,16 @@ class ListDetails extends Component {
 
 function mapStateToProps(state) {
   const list = state.list.filter( list => list.id === state.router.params.idList)[0];
-  //const entries = Object.values(state.entries).filter( entry => entry.listId === list.id);
+  
+  let entries = [];
+
+  for (let key in state.task){
+    if(state.task[key].idList === list.id){
+      entries = entries.concat(state.task[key]);
+    }
+  }
   return {
-  	list
+  	list, entries
   };
 }
 

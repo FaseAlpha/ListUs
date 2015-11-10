@@ -6,6 +6,10 @@ import FooterContainer from './FooterContainer';
 
 export default class App extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
 
     let divStyle = this.props.children ? 'none' : '';
@@ -18,7 +22,7 @@ export default class App extends Component {
           <ArticleContainer />
           <FooterContainer />
         </div>
-       
+        
         {this.props.children}
        
       </div>
