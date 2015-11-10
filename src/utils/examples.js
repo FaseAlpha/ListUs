@@ -1,9 +1,6 @@
-
-import { fromJS } from 'immutable';
 import { getId } from './index.js';
-import { Map, List } from 'immutable';
 
-const LIST = [
+const list = [
   {
     id: getId(),
     title: 'Real Madrid',
@@ -16,26 +13,7 @@ const LIST = [
   }
 ];
 
-export default LIST;
-
-/*const id = getId();
-const id2 = getId();
-const idList = 0;
-
-export const taskInitialState = Map({
-  [id]:Map({
-    id,
-    idList,
-    title: 'Real Madrid'
-  }),
-  [id2]:Map({
-    id: id2,
-    idList,
-    title: 'ATM'
-  })
-});
-
-
+export default list;
 
 export const task = {
   0: {
@@ -70,7 +48,5 @@ export const task = {
   }
 };
 
-export const initialState = {
-  list, task
-};*/
+
 

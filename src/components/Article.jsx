@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Dialog, TextField, FloatingActionButton, DatePicker } from 'material-ui';
+import { Dialog, TextField, FloatingActionButton, DatePicker, DatePickerDialog } from 'material-ui';
 
 const injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
@@ -23,7 +23,7 @@ export default class Article extends React.Component {
     addListItem(title);
 
     node.value = '';
-    console.log(this.refs.datePicker.getDate());
+    //console.log(this.refs.datePicker.getDate());
     this.refs.dialog.dismiss();
 
     //console.log(title);
@@ -80,9 +80,10 @@ export default class Article extends React.Component {
 
         <div>
           <Dialog ref='dialog' title='Crear Lista' actions={dialogActions} >
-            <TextField ref='ListInput' floatingLabelText="Título de la lista" />
-            <DatePicker hintText="Landscape Dialog" ref='datePicker' mode="landscape"/>
+            <TextField ref='ListInput' floatingLabelText="Título de la lista" /> 
           </Dialog>
+          
+
         </div>
 
         <div>
@@ -91,7 +92,7 @@ export default class Article extends React.Component {
         <div>
           {
             list.map( (list, index) => 
-              <List key={index} title={list.title} undoTasks={list.undoTasks}>
+              <List key={index} title={list.title} id={list.id} undoTasks={list.undoTasks}>
                 <div>
                   <button onClick={() => this.handleDeleteListItem(list.id)} className='btn btn-danger'>Borrar</button>
                 </div>

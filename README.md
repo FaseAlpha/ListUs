@@ -1,7 +1,7 @@
 
 # Demo
 
-[got to app](http://surtich.github.io/polls/)
+[got to app](http://FaseAlpha.github.io/ListUs/)
 
 # To install
 ```bash
