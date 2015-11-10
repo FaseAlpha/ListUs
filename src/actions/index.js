@@ -21,8 +21,8 @@ export const REMOVE_ALL_LISTS = 'REMOVE_ALL_LISTS';
 	Task actions creators
 */
 
-export function addTask (title, idList) {
-	return { type: ADD_TASK, title, idList };
+export function addTask (idList, title) {
+	return { type: ADD_TASK, idList, title };
 }
 
 export function removeTask (idTask) {

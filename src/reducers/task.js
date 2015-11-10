@@ -31,7 +31,7 @@ function editTask(state, idTask, title){
 export default function taskReducer( state = {} , action ){
   switch (action.type) {
     case ADD_TASK:
-      return addTask(state, action.idTask, action.title);
+      return addTask(state, action.idList, action.title);
     case REMOVE_TASK:
       return removeTask(state, action.idTask);
     case EDIT_TASK:

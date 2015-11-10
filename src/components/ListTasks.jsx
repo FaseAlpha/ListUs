@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class ListTasks extends Component {
 
@@ -10,10 +11,10 @@ export default class ListTasks extends Component {
 
   render() {
     const { list } = this.props;
-
     return (
       <div>
-        <h2>You are in {entries.title}</h2>
+        <h2>You are in {list.title}</h2>
+        <Link to='/'>Volver</Link>
       </div>
     );
   }

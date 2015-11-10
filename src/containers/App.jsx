@@ -7,16 +7,20 @@ import FooterContainer from './FooterContainer';
 export default class App extends Component {
 
   render() {
+
+    let divStyle = this.props.children ? 'none' : '';
     return (
       <div>
-        <h1>Welcome to my App</h1>
-        <div>
+        
+        <div style={{display: divStyle}}>
           <HeaderContainer />
           <NavContainer />
           <ArticleContainer />
           <FooterContainer />
         </div>
+       
         {this.props.children}
+       
       </div>
     );
   }

@@ -6,6 +6,5 @@ import ListDetails from './containers/ListDetails';
 export default (
   <Route path="/" component={App}>
     	<Route path="/:idList" component={ListDetails} />
-      <Route path="*" to="/" />
   </Route>
 );
