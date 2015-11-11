@@ -5,19 +5,63 @@ export default class ItemList extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      isModifyList: false
+    };
+  }
+
+  handleOnClickEdit(e){
+    this.setState({ isModifyList: true});
+  }
+
+  handleOkClick(e){
+    const newTitle = this.refs.title.value;
+    const { onEditList, list } = this.props;
+    onEditList(list.id, newTitle);
+    this.setState({ isModifyList: false});
+  }
+
+  handleCancelClick(e){
+    this.setState({ isModifyList: false});
+  }
+
+  handleOnClickRemove(e){
+    const { list, onRemoveList } = this.props;
+    onRemoveList(list.id);
   }
 
   render() {
     const { list } = this.props;
     return(
+    <div>
       <li className={'list-group-item action-element'} >
-        <Link to={`/list/${list.id}`}>{ list.title }</Link>
+        <Link to={`/list/${list.id}`} style={{color: 'inherit', textDecoration: 'inherit'}}>{ list.title }</Link>
+        <span className="input-group-btn">
+          <button className="btn btn-warning" onClick={(e) => this.handleOnClickEdit(e)} ><span className="glyphicon glyphicon-wrench" /></button>
+          <button className="btn btn-danger" onClick={(e) => this.handleOnClickRemove(e)} ><span className="glyphicon glyphicon-remove-sign" /></button>
+        </span>
       </li>
 
+      <div className={`input-group ${this.state.isModifyList ? '' : 'hidden'}`}>
+          <input className="form-control" ref="title"/>
+          <span className="input-group-btn">
+            <button className="btn btn-danger" type="button" onClick={e => this.handleCancelClick(e)}><span className="glyphicon glyphicon-remove" /></button>
+            <button className="btn btn-success" type="button" onClick={e => this.handleOkClick(e)}><span className="glyphicon glyphicon-ok" /></button>
+          </span>
+      </div>
+    </div>
     );
   }
 }
 
+
+
 ItemList.propTypes = {
-  list: PropTypes.object.isRequired
+  list: PropTypes.object.isRequired,
+  onRemoveList: PropTypes.func.isRequired,
+  onEditList: PropTypes.func.isRequired
+};
+
+ItemList.defaultProps = {
+  list: {}
 };

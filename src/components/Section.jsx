@@ -21,15 +21,18 @@ export default class Section extends Component {
             </ul>
           </div>
         </span>
-        <div className="col-md-6 center">
-          <ul>
+        
+        <div className="col-md-10 ">
+          <ul className="list-group">
             {
               lists.map( (list, index) => <List list={list} key={index} onRemoveList={onRemoveList} onEditList={onEditList}/> )
             }
           </ul>
         </div>
+        <div className="col-md-2">
+        </div>
         <div className="col-md-12 center">
-          <button> + </button>
+          <button className="btn-round btn-danger"> <span className="glyphicon glyphicon-plus" /> </button>
         </div>
       </div>
     );

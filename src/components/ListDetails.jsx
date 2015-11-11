@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import ItemTaskDetails from './ItemTaskDetails';
+import List from './List';
 
 export default class ListDetails extends Component {
 
@@ -7,18 +9,24 @@ constructor(props){
 }
 
 render() {
-  const { list, tasks } = this.props;
+  const { list, onRemoveList, onEditList, tasks, onRemoveTask, onEditTask } = this.props;
   return(
-    <div className="row">
-      <div className="col-md-12">
-        {list.title}
+    <div className="row section">
+      <div className="col-md-1">
+      </div>
+      <div className="col-md-10">
+        <ul className="list-group">
+          <List list={list} onRemoveList={onRemoveList} onEditList={onEditList}/>
+        </ul>
       </div>
 
-      <ul>
-        {
-          tasks.map( (task, index) => <li key={index}> {task.title} </li>)
-        }
-      </ul>
+      <div className="col-md-10">
+        <ul className="list-group">
+          {
+            tasks.map( (task, index) => <ItemTaskDetails key={index} task={task} onRemoveTask={onRemoveTask} onEditTask={onEditTask} />)
+          }
+        </ul>
+      </div>
     </div>
   );
 }
