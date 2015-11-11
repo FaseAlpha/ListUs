@@ -11,11 +11,11 @@ function addList(state, title, date){
   return state.concat({title, date, id: getId()});
 }
 
-function removeList(state, id){
+function removeList(state, idList){
 
   const newState = state.slice();
   for(let i=0; i<state.length && newState.length===state.length; i++){
-    if(newState[i]['id'] === id){
+    if(newState[i]['id'] === idList){
       newState.splice(i, 1);
     }
   }
@@ -33,7 +33,7 @@ export default function listReducer(state = [], action) {
     case ADD_LIST:
       return addList(state, action.title, action.date);
     case REMOVE_LIST:
-      return removeList(state, action.id);
+      return removeList(state, action.idList);
     default:
       return state;
     }

@@ -67,7 +67,7 @@ export const photo = 'femwarr.jpg';
 
 export const tasks = {
 	0: [
-  		{idTask: 0, title:'Obra'},
+  		{idTask: 0, title:'Obra', content:'REalizada por Augusto'},
   		{idTask: 1, title:'Horario'}
   ],
   1: [

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ListTasks from '../components/ListTasks';
+import { addTask, removeTask } from '../actions';
 
 
 
@@ -12,7 +13,8 @@ function stateToProps(state){
 
 function actionsToProps(dispatch){
 	return {
-
+		onAddTask: (idList, task) => dispatch(addTask(idList, task)),
+		onRemoveTask: (idList, idTask) => dispatch(removeTask(idList, idTask))
 	};
 }
 

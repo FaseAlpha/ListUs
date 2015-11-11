@@ -1,10 +1,8 @@
 
 
 export function arrayPositionByObjectKey(key, value, array){
-	//let position=-1;
-	for(let i=0; i<array.length; i++){
+	for(let i=0; i<array.length ; i++){
 		if(array[i][key] == value) return i;
-		//debugger;
 	}
 	return -1;
 }
@@ -12,8 +10,8 @@ export function arrayPositionByObjectKey(key, value, array){
 
 export function cloneObject(obj){
 	let newObj={};
-	for(key in obj){
-		newObj[key] = obj[key];
+	for(var key in obj){
+		newObj[key] = obj[key].slice();
 	}
 	return newObj;
 }

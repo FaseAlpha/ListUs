@@ -30,7 +30,7 @@ export default class ConfirmDialog extends Component {
 		//const DatePicker = require('material-ui/lib/date-picker/date-picker');
 		//const DatePickerDialog = require('material-ui/lib/date-picker/date-picker-dialog');
 		var injectTapEventPlugin = require("react-tap-event-plugin");
-injectTapEventPlugin();
+		injectTapEventPlugin();
 		return (
 
 			<div>

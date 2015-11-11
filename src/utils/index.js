@@ -1,5 +1,5 @@
 import uuid from 'node-uuid';
 
-export function getId() {
+export default function getId() {
   return uuid.v1();
 }
