@@ -13,9 +13,7 @@ const list = [
   }
 ];
 
-export default list;
-
-export const task = {
+const task = {
   0: {
     id: '0',
 		listId: list[0].id,
@@ -47,6 +45,10 @@ export const task = {
     title: 'Neymar'
   }
 };
+
+export const initialState = {
+  list, task
+}
 
 
 
