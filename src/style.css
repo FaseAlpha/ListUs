@@ -1,10 +1,16 @@
 
 .section{
-  background: LightGreen;
+  background: #474646;
 }
 .header{
-  background: LimeGreen;
+  background: #292929;
+  color: white;
 }
+.btn-menu{
+  background: white;
+  color: #FFAE27;
+}
+
 .list{
   background: yellow;
 }

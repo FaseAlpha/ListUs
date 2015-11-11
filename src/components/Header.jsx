@@ -18,7 +18,7 @@ export default class Header extends Component{
 
       <div className="row header">
         <div className="col-md-2">
-          <button onClick={ () => this.handleOnClickAsideVisibility()} > <span className="glyphicon glyphicon-menu-hamburger" /> </button>
+          <button className="btn btn-menu" onClick={ () => this.handleOnClickAsideVisibility()} > <span className=" glyphicon glyphicon-menu-hamburger " /> </button>
         </div>
         <div className="col-md-8">
           <h1> ListUs </h1>
