@@ -1,12 +1,12 @@
 import { SET_TASK, ADD_TASK, REMOVE_TASK, EDIT_TASK } from '../actions';
 import { getId } from '../utils';
 
-function addTask(state, idList, title){
+function addTask(state, listId, title){
   const id = getId();
   const task = {
     [id]:{
       id,
-      idList,
+      listId,
       title
     }
   };

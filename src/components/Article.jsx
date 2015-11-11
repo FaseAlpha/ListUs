@@ -66,7 +66,7 @@ export default class Article extends React.Component {
   
 
   render() {
-
+    
     const { list } = this.props;
     //console.log(list);
 

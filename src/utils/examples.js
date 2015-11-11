@@ -1,6 +1,6 @@
 import { getId } from './index.js';
 
-const list = [
+export const list = [
   {
     id: getId(),
     title: 'Real Madrid',
@@ -13,7 +13,7 @@ const list = [
   }
 ];
 
-const task = {
+export const task = {
   0: {
     id: '0',
 		listId: list[0].id,
@@ -48,7 +48,7 @@ const task = {
 
 export const initialState = {
   list, task
-}
+};
 
 
 

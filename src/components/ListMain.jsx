@@ -11,6 +11,7 @@ export default class ListMain extends Component {
     const { list, addTask } = this.props;
     const node = this.refs.title;
     const title =  node.value.trim();
+
     addTask(list.id, title);
     node.value = '';
   }

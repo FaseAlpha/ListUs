@@ -28,10 +28,11 @@ function mapStateToProps(state) {
   let entries = [];
 
   for (let key in state.task){
-    if(state.task[key].idList === list.id){
+    if(state.task[key].listId === list.id){
       entries = entries.concat(state.task[key]);
     }
   }
+
   return {
   	list, entries
   };
