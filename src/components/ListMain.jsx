@@ -20,20 +20,19 @@ export default class ListMain extends Component {
   render() {
     const { entries } = this.props;
     return (
-      <div className="row article">
-        <div className="col-lg-6">
-          <ul className="list-group">
-            {
-              entries.map( (entry, index) => <li key={index}>{entry.title}</li> )
-            }
-         </ul>
+      <div className="article">
+        <ul className="list-group">
+          {
+            entries.map( (entry, index) => <li key={index}>{entry.title}</li> )
+          }
+        </ul>
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Entry Title" ref="title"/>
             <span className="input-group-btn">
               <button className="btn btn-info" type="button" onClick={e => this.addTask(e)}>Add Entry</button>
             </span>
           </div>
-        </div>
+       
       </div>
     );
   }

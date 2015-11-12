@@ -17,17 +17,6 @@ class Nav extends React.Component {
   	this.refs.leftNav.toggle();
   }
 
-  showDialog(){
-  	debugger;
-  	const nodeDialog = this.refs.dialog;
-    nodeDialog.show();
-  }
-
-  hideDialog(){
-    const nodeDialog = this.refs.dialog;
-    nodeDialog.dismiss();
-  }
-
 	render() {
 		
 		const menuItems = [
@@ -39,33 +28,37 @@ class Nav extends React.Component {
 
 		  { 
 		  	type: MenuItem.Types.SUBHEADER, 
-		  	text: 'Grupos' 
+		  	text: 'Groups' 
 		  },
 		  {
 		     type: MenuItem.Types.LINK,
 		     payload: './groups',
-		     text: 'Crear grupo'
+		     text: 'Manage groups'
+		  },
+		  { 
+		  	type: MenuItem.Types.SUBHEADER, 
+		  	text: 'Manage friends' 
 		  },
 		  {
-		     type: MenuItem,
-		     payload: 'https://www.google.com',
-		     text: 'Disabled Link',
-		     disabled: true
+		     type: MenuItem.Types.LINK,
+		     payload: './friends',
+		     text: 'Friends'
+		  },
+		  { 
+		  	type: MenuItem.Types.SUBHEADER, 
+		  	text: 'Lists' 
+		  },
+		  {
+		     type: MenuItem.Types.LINK,
+		     payload: './list',
+		     text: 'My lists'
 		  },
 		];
 
-		const dialogActions = [
-      { text: 'Cancel', onClick: this.hideDialog.bind(this) },
-      { text: 'Submit', onClick: e => this.handleAddListItem(e), ref: 'submit' }
-    ];
-
 		return (
-			<nav className='nav'>
-				<button onClick={this.showNav.bind(this)} className='btn btn-default btn-flat'><span ref='span' className='biggerGlyphicon glyphicon glyphicon-menu-hamburger'></span></button>
+			<nav className='leftNav'>
+				<button onClick={this.showNav.bind(this)} className='btn btn-primary btn-flat'><span ref='span' className='biggerGlyphicon glyphicon glyphicon-menu-hamburger'></span></button>
 				<LeftNav ref="leftNav" docked={false} menuItems={menuItems}/>	
-				<Dialog ref='dialog' title='Crear Grupo' actions={dialogActions} >
-          <TextField ref='InputGroup' floatingLabelText="Título del grupo" /> 
-        </Dialog>
 			</nav>
 		);
 	}

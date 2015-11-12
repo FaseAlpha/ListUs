@@ -14,16 +14,24 @@
 }
 
 .listHeader {
-	background-color: cyan;
+	background-color: #349595;
+	margin-top: -20px;
 }
 
 
-.nav {
+/*.nav {
 	background-color: #48D4B8;
 	width: 20%;
 	height: 800px;
 	float: left;
 	display: none;
+}*/
+
+.leftNav{
+	text-align: left;
+	margin: 10px 20px;
+	position: relative;
+	top: -20px;
 }
 
 .article {
@@ -38,6 +46,9 @@
 	width: 100%;
 	height: 150px;
 	clear: both;
+
+	margin-right: 0 !important;
+	margin-left: 0 !important;
 }
 
 .image {
@@ -52,6 +63,10 @@
 	font-size: 1.6em;
 }
 
+.marginGlyph {
+	margin-right: 15px;
+}
+
 .upper {
 	position: relative;
 	top: 15px;
@@ -61,12 +76,15 @@
 .list {
 		
 	height: 75px;
-	
+	width: 100%;
 	display: flex;
 	align-items: center;
 	position: relative;
 
 	border-bottom: 2px solid #FF330F; 
+
+	margin-right: 0 !important;
+	margin-left: 0 !important;
 
 }
 
@@ -126,11 +144,13 @@
   font-feature-settings: 'liga';
 }
 
+.account {
+	text-align: center;
+
+}
+
 @media all and (min-width: 700px){
-	.nav {
-		display: inline;
-	}
 	.article {
-		width: 80%;
+		width: 100%;
 	}
 }

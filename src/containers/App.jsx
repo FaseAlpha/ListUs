@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import HeaderContainer from './HeaderContainer';
-import NavContainer from './NavContainer';
+
 import ArticleContainer from './ArticleContainer';
 import FooterContainer from './FooterContainer';
 
@@ -17,7 +17,7 @@ export default class App extends Component {
         
         <div>
           <HeaderContainer />
-          <NavContainer />
+          
           {this.props.children}
           <FooterContainer />
         </div>

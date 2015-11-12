@@ -5,8 +5,10 @@ import Article from '../components/Article';
 import { addList, removeList, removeAllLists } from '../actions';
 
 function mapStateToProps(state) {
+  
   return {
-  	list: state.list
+  	list: state.list,
+    task: state.task
   };
 }
 

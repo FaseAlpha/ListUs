@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Dialog, TextField, FloatingActionButton, DatePicker, DatePickerDialog } from 'material-ui';
 
-const injectTapEventPlugin = require("react-tap-event-plugin");
-injectTapEventPlugin();
+
 
 import List from './List';
 
@@ -60,15 +59,22 @@ export default class Article extends React.Component {
     nodeDialog.dismiss();
   }
   
-
+  countTasks(listId, task){
+    let counter = 0;
+    for (let key in task) {
+      if (task[key].listId === listId) {
+        counter++;
+      }
+    }
+    return counter;
+  }
   
 
   
 
   render() {
-    
-    const { list } = this.props;
-    //console.log(list);
+    const { list, task } = this.props;
+    let tasks = this.countTasks.bind(this);
 
     let dialogActions = [
       { text: 'Cancel', onClick: this.hideDialog.bind(this) },
@@ -82,17 +88,16 @@ export default class Article extends React.Component {
           <Dialog ref='dialog' title='Crear Lista' actions={dialogActions} >
             <TextField ref='ListInput' floatingLabelText="Título de la lista" /> 
           </Dialog>
-          
-
         </div>
 
         <div>
           <button onClick={this.handleDeleteAllLists.bind(this)} className='pull-right btn btn-danger'>Borrar todas las listas</button>
         </div>
+
         <div>
           {
             list.map( (list, index) => 
-              <List key={index} title={list.title} id={list.id} undoTasks={list.undoTasks}>
+              <List key={index} title={list.title} id={list.id} undoTasks={tasks}>
                 <div>
                   <button onClick={() => this.handleDeleteListItem(list.id)} className='btn btn-danger'>Borrar</button>
                 </div>
