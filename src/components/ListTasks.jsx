@@ -12,7 +12,7 @@ export default class ListTasks extends Component {
   render() {
     const { list } = this.props;
     return (
-      <div>
+      <div className='listHeader'>
         <h2>You are in {list.title}</h2>
         <Link to='/'>Volver</Link>
       </div>

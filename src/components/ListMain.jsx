@@ -20,7 +20,7 @@ export default class ListMain extends Component {
   render() {
     const { entries } = this.props;
     return (
-      <div className="row">
+      <div className="row article">
         <div className="col-lg-6">
           <ul className="list-group">
             {

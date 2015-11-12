@@ -19,7 +19,7 @@ export default class List extends React.Component {
       
   		<div className={style}>
        			<div className="col-xs-1"></div>
-        		<div className="col-xs-3"><Link to={`/${this.props.id}`}>{this.props.title}</Link></div>
+        		<div className="col-xs-3"><Link to={`list/${this.props.id}`}>{this.props.title}</Link></div>
         		<div className="col-xs-6">{this.props.children}</div>
         		<div className="col-xs-1"><span className='badgeList badge'>{this.props.undoTasks}</span></div>
         		<div className="col-xs-1"></div>

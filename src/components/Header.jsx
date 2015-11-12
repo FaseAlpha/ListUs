@@ -2,6 +2,9 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router';
+
+
 class Header extends React.Component {
 	render() {
 		return (
@@ -19,7 +22,7 @@ class Header extends React.Component {
 		          <div className="col-xs-2"></div>
 		      </div>
 
-		        <img className='image' src={"https://facebook.github.io/react/img/logo.svg"}/>
+		        <Link to='/list'><img className='image' src={"https://facebook.github.io/react/img/logo.svg"}/></Link>
 		        
 		        <h4>ListUs</h4>
 		      </div>

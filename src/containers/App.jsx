@@ -12,18 +12,16 @@ export default class App extends Component {
 
   render() {
 
-    let divStyle = this.props.children ? 'none' : '';
     return (
       <div>
         
-        <div style={{display: divStyle}}>
+        <div>
           <HeaderContainer />
           <NavContainer />
-          <ArticleContainer />
+          {this.props.children}
           <FooterContainer />
         </div>
         
-        {this.props.children}
        
       </div>
     );
