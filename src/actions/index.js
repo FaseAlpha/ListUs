@@ -29,6 +29,20 @@ export const DISPLAY_ASIDE = 'DISPLAY_ASIDE';
 export const DISPLAY_CALENDAR = 'DISPLAY_CALENDAR';
 
 /*
+* COMMENT
+*/
+
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENTS = 'REMOVE_COMMENTS';
+
+/*
+* FRIENDS
+*/
+
+export const ADD_FRIEND = 'ADD_FRIEND';
+export const REMOVE_FRIEND = 'REMOVE_FRIEND';
+
+/*
 * task action creator
 */
 
@@ -76,4 +90,17 @@ export function displayAside(display){
 
 export function displayCalendar(display){
   return { type: DISPLAY_CALENDAR, display };
+}
+
+
+/*
+* comment action creator
+*/
+
+export function addComment(idList, user, date, msg){
+  return { type: ADD_COMMENT, idList, user, date, msg};
+}
+
+export function removeComments(idList){
+  return { type: REMOVE_COMMENTS, idList};
 }
