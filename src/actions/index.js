@@ -16,6 +16,19 @@ export const EDIT_LIST = 'EDIT_LIST';
 export const SET_LIST = 'SET_LIST';
 export const REMOVE_ALL_LISTS = 'REMOVE_ALL_LISTS';
 
+/*
+* COMMENT
+*/
+
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENTS = 'REMOVE_COMMENTS';
+
+/*
+* FRIENDS
+*/
+
+export const ADD_FRIEND = 'ADD_FRIEND';
+export const REMOVE_FRIEND = 'REMOVE_FRIEND';
 
 /*
 	Task actions creators
@@ -55,4 +68,28 @@ export function setList (list) {
 
 export function removeAllLists(list) {
 	return { type: REMOVE_ALL_LISTS, list };
+}
+
+
+/*
+* comment action creator
+*/
+
+export function addComment(idList, user, date, msg){
+  return { type: ADD_COMMENT, idList, user, date, msg};
+}
+export function removeComments(idList){
+  return { type: REMOVE_COMMENTS, idList};
+}
+
+
+/*
+* Friends actions creator
+*/
+
+export function addFriend(name){
+  return { type: ADD_FRIEND, name};
+}
+export function removeFriend(id){
+  return { type: REMOVE_FRIEND, id};
 }

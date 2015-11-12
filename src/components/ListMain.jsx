@@ -21,9 +21,9 @@ export default class ListMain extends Component {
     const { entries } = this.props;
     return (
       <div className="article">
-        <ul className="list-group">
+        <ul className="nav nav-pills nav-stacked navMarginTop">
           {
-            entries.map( (entry, index) => <li key={index}>{entry.title}</li> )
+            entries.map( (entry, index) => <li role='presentation' key={index}><a href='#'>{entry.title}</a></li> )
           }
         </ul>
           <div className="input-group">

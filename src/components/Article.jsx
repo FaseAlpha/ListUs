@@ -74,7 +74,7 @@ export default class Article extends React.Component {
 
   render() {
     const { list, task } = this.props;
-    let tasks = this.countTasks.bind(this);
+    
 
     let dialogActions = [
       { text: 'Cancel', onClick: this.hideDialog.bind(this) },
@@ -97,7 +97,7 @@ export default class Article extends React.Component {
         <div>
           {
             list.map( (list, index) => 
-              <List key={index} title={list.title} id={list.id} undoTasks={tasks}>
+              <List key={index} title={list.title} id={list.id}>
                 <div>
                   <button onClick={() => this.handleDeleteListItem(list.id)} className='btn btn-danger'>Borrar</button>
                 </div>

@@ -15,9 +15,17 @@
 
 .listHeader {
 	background-color: #349595;
-	margin-top: -20px;
+	padding: 10px;
+	text-align: center;
 }
 
+.navMarginTop {
+	margin-top: 20px;
+}
+
+.listTitle {
+	padding-bottom: 10px;
+}
 
 /*.nav {
 	background-color: #48D4B8;

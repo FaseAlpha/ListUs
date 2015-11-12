@@ -46,8 +46,38 @@ export const task = {
   }
 };
 
+export const comments = {
+  1: [ 
+    { idList:1, user:'pepe', date:'12/7/2015', msg:'eeeeee'},
+    { idList:1, user:'juan', date:'12/7/2015', msg:'wwww'}
+  ],
+  2: [ 
+    { idList:2, user:'pepe', date:'13/7/2015', msg:'goewjpe'}, 
+    { idList:2, user:'juan', date:'13/7/2015', msg:'trtrt'}
+  ]
+};
+
+export const friends = [
+  {
+    id: 1,
+    nombre: 'Pepe',
+    grupos: ['IES ZAYAS']
+  },
+  {
+    id: 2,
+    nombre: 'Pepa',
+    grupos: ['IES ZAYAS']
+  },
+  {
+    id: 3,
+    nombre: 'Juan',
+    grupos: ['Boxeo', 'IES ZAYAS']
+  }
+
+];
+
 export const initialState = {
-  list, task
+  list, task, comments, friends
 };
 
 
