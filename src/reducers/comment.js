@@ -8,7 +8,9 @@ function addComment(state, idList, user, date, msg){
 }
 
 function removeComments(state, idList){
-  return Object.keys(state).reduce( (keysComments, keyComment) =>  keyComment===idList ? keysComments : Object.assign( keysComments, { [keyComment]: Object.values(keyComment)} ), {});
+  let newState = Object.assign({}, state);
+  delete newState[idList];
+  return newState;
 }
 
 

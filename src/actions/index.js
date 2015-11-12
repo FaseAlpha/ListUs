@@ -100,7 +100,17 @@ export function displayCalendar(display){
 export function addComment(idList, user, date, msg){
   return { type: ADD_COMMENT, idList, user, date, msg};
 }
-
 export function removeComments(idList){
   return { type: REMOVE_COMMENTS, idList};
+}
+
+/*
+* friends actions creator
+*/
+
+export function addFriend(name){
+  return { type: ADD_FRIEND, name};
+}
+export function removeFriend(id){
+  return { type: REMOVE_FRIEND, id};
 }

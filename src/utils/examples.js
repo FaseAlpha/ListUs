@@ -16,6 +16,25 @@ export const comments = {
   2: [ { idList:2, user:'pepe', date:'13/7/2015', msg:'goewjpe'}, { idList:2, user:'juan', date:'13/7/2015', msg:'trtrt'}]
 };
 
+export const friends = [
+  {
+    id: 1,
+    nombre: 'Pepe',
+    grupos: ['IES ZAYAS']
+  },
+  {
+    id: 2,
+    nombre: 'Pepa',
+    grupos: ['IES ZAYAS']
+  },
+  {
+    id: 3,
+    nombre: 'Juan',
+    grupos: ['Boxeo', 'IES ZAYAS']
+  }
+
+];
+
 export const tasks = {
 	0: {
     id: '0',
