@@ -15,6 +15,7 @@ function addTask(state, idList, title){
 
 function removeTask(state, idTask){
   //return Object.values(state).reduce( (tasks, task) => task.id === idTask ? tasks : Object.assign( tasks, { [task.id]: task }),{});
+
   let newState = Object.assign({}, state);
   delete newState[idTask];
   return newState;

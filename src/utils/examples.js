@@ -2,18 +2,18 @@ import { getId } from './index';
 
 export const lists = [
   {
-    id: 1,
+    id: getId(),
     title: 'Real Madrid'
   },
   {
-    id: 2,
+    id: getId(),
     title: 'Barsa'
   }
 ];
 
 export const comments = {
-  1: [ { idList:1, user:'pepe', date:'12/7/2015', msg:'eeeeee'}, { idList:1, user:'juan', date:'12/7/2015', msg:'wwww'}],
-  2: [ { idList:2, user:'pepe', date:'13/7/2015', msg:'goewjpe'}, { idList:2, user:'juan', date:'13/7/2015', msg:'trtrt'}]
+  1: [ { idList:lists[0].id, user:'pepe', date:'12/7/2015', msg:'eeeeee'}, { idList:lists[0].id, user:'juan', date:'12/7/2015', msg:'wwww'}],
+  2: [ { idList:lists[1].id, user:'pepe', date:'13/7/2015', msg:'goewjpe'}, { idList:lists[1].id, user:'juan', date:'13/7/2015', msg:'trtrt'}]
 };
 
 export const friends = [
@@ -82,4 +82,4 @@ export const aside = {display: false};
 
 export const calendar = {display: true};
 
-export const initialState =  { lists, tasks, aside, calendar, comments };
+export const initialState =  { lists, tasks, aside, calendar, comments, friends };

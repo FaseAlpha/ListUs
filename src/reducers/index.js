@@ -5,14 +5,14 @@ import tasks from './task';
 import lists from './list';
 import aside from './aside';
 import calendar from './calendar';
-import comment from './comment';
-import friend from './firned';
+import comments from './comment';
+import friends from './friend';
 
 export default combineReducers({
   lists,
   tasks,
-  comment,
-  friend,
+  comments,
+  friends,
   aside,
   calendar,
   router
