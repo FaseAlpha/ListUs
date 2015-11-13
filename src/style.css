@@ -1,0 +1,33 @@
+
+.section{
+  background: #474646;
+}
+.header{
+  background: #292929;
+  color: white;
+}
+.btn-menu{
+  background: white;
+  color: #FFAE27;
+}
+
+.list{
+  background: yellow;
+}
+.aside{
+  position: fixed;
+  z-index: 1;
+  background: green;
+  opacity: 0.9;
+}
+.center{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.btn-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
